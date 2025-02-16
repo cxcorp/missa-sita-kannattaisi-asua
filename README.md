@@ -1,5 +1,7 @@
 # Missä sitä kannattaisi asua?
 
+https://cxcorp.github.io/missa-sita-kannattaisi-asua/
+
 Klikkaa kartalle pisteitä, ja sivu laskee pisteille kolme lähintä pistettä eri laskukaavoilla.
 
 ## License
