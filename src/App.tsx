@@ -75,11 +75,20 @@ const AppMap = memo(() => {
       cursor="default"
       onClick={handleClick}
     >
-      {markers.map(({ lngLat }) => (
+      {markers.map(({ lngLat }, i) => (
         <Marker
+          draggable
           latitude={lngLat.lat}
           longitude={lngLat.lng}
-          key={lngLat.toString()}
+          key={i}
+          onDrag={(e) => {
+            const newPos = e.lngLat;
+            setMarkers((oldMarkers) =>
+              oldMarkers.map((marker, j) =>
+                j === i ? { lngLat: newPos } : marker,
+              ),
+            );
+          }}
         ></Marker>
       ))}
       {middles &&
