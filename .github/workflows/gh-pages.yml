@@ -49,7 +49,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build project
-        run: pnpm run build
+        run: pnpm run build --base=/missa-sita-kannattaisi-asua/
 
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
