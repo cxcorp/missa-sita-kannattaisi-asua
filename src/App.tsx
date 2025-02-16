@@ -1,8 +1,7 @@
 import { centerMean, centerMedian, centerOfMass } from "@turf/turf";
 import type { Feature, FeatureCollection, Point } from "geojson";
-import maplibregl, { LngLat } from "maplibre-gl";
+import { LngLat } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { Protocol } from "pmtiles";
 import { memo, useCallback, useMemo, useState } from "react";
 import Map, {
   FullscreenControl,
@@ -11,9 +10,6 @@ import Map, {
   NavigationControl,
   type MapLayerMouseEvent,
 } from "react-map-gl/maplibre";
-
-const protocol = new Protocol();
-maplibregl.addProtocol("pmtiles", protocol.tile);
 
 const initialViewState = {
   longitude: 24.9375,
