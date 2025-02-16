@@ -5,7 +5,6 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { Protocol } from "pmtiles";
 import { memo, useCallback, useMemo, useState } from "react";
 import Map, { Marker, type MapLayerMouseEvent } from "react-map-gl/maplibre";
-import mapStyle from "./map-style-protomaps-grayscale";
 
 const protocol = new Protocol();
 maplibregl.addProtocol("pmtiles", protocol.tile);
@@ -71,7 +70,7 @@ const AppMap = memo(() => {
   return (
     <Map
       initialViewState={initialViewState}
-      mapStyle={mapStyle}
+      mapStyle={"https://tiles.openfreemap.org/styles/liberty"}
       cursor="default"
       onClick={handleClick}
     >
