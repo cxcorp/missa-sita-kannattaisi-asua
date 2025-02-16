@@ -4,7 +4,13 @@ import maplibregl, { LngLat } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { Protocol } from "pmtiles";
 import { memo, useCallback, useMemo, useState } from "react";
-import Map, { Marker, type MapLayerMouseEvent } from "react-map-gl/maplibre";
+import Map, {
+  FullscreenControl,
+  GeolocateControl,
+  Marker,
+  NavigationControl,
+  type MapLayerMouseEvent,
+} from "react-map-gl/maplibre";
 
 const protocol = new Protocol();
 maplibregl.addProtocol("pmtiles", protocol.tile);
@@ -73,7 +79,11 @@ const AppMap = memo(() => {
       mapStyle={"https://tiles.openfreemap.org/styles/liberty"}
       cursor="default"
       onClick={handleClick}
+      {...{ aroundCenter: false }}
     >
+      <FullscreenControl />
+      <GeolocateControl showUserLocation showAccuracyCircle />
+      <NavigationControl showCompass showZoom visualizePitch visualizeRoll />
       {markers.map(({ lngLat }, i) => (
         <Marker
           draggable
