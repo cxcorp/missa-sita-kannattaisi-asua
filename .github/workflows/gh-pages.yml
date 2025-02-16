@@ -35,7 +35,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.1.0
         with:
-          version: 10
+          # leave out version so the action sniffs it from package.json's packageManager
           run_install: false
 
       - name: Setup Node.js environment
